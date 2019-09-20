@@ -25,7 +25,7 @@ class MainActivity : AppCompatActivity() {
         AndroidNetworking.initialize(this, client)
         AndroidNetworking.setParserFactory(JacksonParserFactory())
         login_button.setOnClickListener{
-//            login()
+            login()
         }
         logout_button.setOnClickListener{
 //            logout()
@@ -44,11 +44,11 @@ class MainActivity : AppCompatActivity() {
             .build()
             .getAsJSONObject(object : JSONObjectRequestListener{
                 override fun onResponse(response: JSONObject?) {
-                    TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+                    toast(response.toString())
                 }
 
                 override fun onError(anError: ANError?) {
-                    TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+                    toast(anError.toString())
                 }
 
             })
