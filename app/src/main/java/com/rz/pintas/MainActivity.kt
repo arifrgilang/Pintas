@@ -1,6 +1,7 @@
 package com.rz.pintas
 
 import android.content.Context
+import android.content.IntentFilter
 import android.net.wifi.WifiManager
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -81,12 +82,13 @@ class MainActivity : AppCompatActivity() {
             .getSystemService(Context.WIFI_SERVICE) as WifiManager
         if(wifiManager.isWifiEnabled){
             val info = wifiManager.connectionInfo
-            if(info.ssid.equals("UnpadWifi")){
-                toast("SSID is UnpadWifi")
-                return true
-            } else {
-                toast("SSID is not UnpadWifi")
-            }
+            toast("Wifi is on!")
+//            if(info.ssid.equals("UnpadWifi")){
+//                toast("SSID is UnpadWifi")
+//                return true
+//            } else {
+//                toast("SSID is not UnpadWifi")
+//            }
         }
         return false
     }
