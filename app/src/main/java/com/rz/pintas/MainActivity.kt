@@ -28,7 +28,7 @@ class MainActivity : AppCompatActivity() {
             login()
         }
         logout_button.setOnClickListener{
-//            logout()
+            logout()
         }
     }
 
@@ -50,9 +50,27 @@ class MainActivity : AppCompatActivity() {
                 override fun onError(anError: ANError?) {
                     toast(anError.toString())
                 }
-
             })
     }
+
+    private fun logout(){
+        AndroidNetworking.post("http://pintas.unpad.ac.id/ac_portal/login.php")
+            .addBodyParameter("opr", "logout")
+            .setTag("Logout Request")
+            .addHeaders("Content-Type","application/x-www-form-urlencoded")
+            .setPriority(Priority.MEDIUM)
+            .build()
+            .getAsJSONObject(object : JSONObjectRequestListener{
+                override fun onResponse(response: JSONObject?) {
+                    toast(response.toString())
+                }
+
+                override fun onError(anError: ANError?) {
+                    toast(anError.toString())
+                }
+            })
+    }
+
     private fun toast(text: String) = Toast
         .makeText(this, text, Toast.LENGTH_SHORT).show()
 
