@@ -1,57 +1,88 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".MainActivity">
-
-    <EditText
-        android:id="@+id/username"
-        android:hint="@string/username"
-        android:inputType="text"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="16dp" />
-
-    <EditText
-        android:id="@+id/password"
-        android:hint="@string/password"
-        android:inputType="textPassword"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"/>
+    tools:context=".MainActivity"
+    android:background="@color/colorPrimaryDark">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:orientation="vertical"
+        android:layout_centerInParent="true"
+        android:layout_marginStart="48dp"
+        android:layout_marginEnd="48dp">
 
-        <Button
-            android:id="@+id/login_button"
-            android:layout_width="wrap_content"
+        <com.libizo.CustomEditText
+            android:id="@+id/username"
+            android:hint="@string/username"
+            android:textColor="@android:color/white"
+            android:inputType="text"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="16dp"
-            android:text="@string/login"/>
+            app:libIZO_setBorderColor="@color/colorAccent"
+            app:libIZO_setBorderView="true"
+            app:libIZO_setCornerRadius="4dp"
+            app:libIZO_setStrokeWidth="2dp"/>
 
-        <Button
-            android:id="@+id/logout_button"
-            android:layout_width="wrap_content"
+        <com.libizo.CustomEditText
+            android:id="@+id/password"
+            android:hint="@string/password"
+            android:textColor="@android:color/white"
+            android:inputType="textPassword"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:text="@string/logout" />
-
-        <Button
-            android:id="@+id/save_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/save"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"/>
+            android:layout_marginEnd="16dp"
+            app:libIZO_setBorderColor="@color/colorAccent"
+            app:libIZO_setBorderView="true"
+            app:libIZO_setCornerRadius="4dp"
+            app:libIZO_setStrokeWidth="2dp"/>
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/login_button"
+                android:backgroundTint="@color/colorAccent"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"
+                style="@android:style/Theme.Material"
+                android:text="@string/login"/>
+
+            <Button
+                android:id="@+id/logout_button"
+                android:backgroundTint="@color/colorAccent"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                style="@android:style/Theme.Material"
+                android:text="@string/logout" />
+
+            <Button
+                android:id="@+id/save_button"
+                android:backgroundTint="@color/colorAccent"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:text="@string/save"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                style="@android:style/Theme.Material"/>
+
+        </LinearLayout>
     </LinearLayout>
 
-</LinearLayout>
+
+</RelativeLayout>

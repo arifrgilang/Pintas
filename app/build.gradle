@@ -34,6 +34,7 @@ dependencies {
     implementation 'com.amitshekhar.android:jackson-android-networking:1.0.2'
     implementation 'com.facebook.stetho:stetho-okhttp3:1.5.1'
     implementation 'com.amitshekhar.android:jackson-android-networking:1.0.2'
+    implementation 'com.libizo:customedittext:1.0.6'
 
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test:runner:1.2.0'
