@@ -2,6 +2,7 @@ package com.rz.pintas
 
 import android.content.Context
 import android.content.IntentFilter
+import android.content.SharedPreferences
 import android.net.wifi.WifiManager
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -21,6 +22,10 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        val sp = getSharedPreferences("Main", Context.MODE_PRIVATE)
+
+        username.setText(sp.getString("username",""))
+        password.setText(sp.getString("password",""))
 
         val client = OkHttpClient().newBuilder()
             .addNetworkInterceptor(StethoInterceptor())
@@ -33,6 +38,17 @@ class MainActivity : AppCompatActivity() {
         logout_button.setOnClickListener{
             logout()
         }
+        save_button.setOnClickListener{
+            save(sp)
+        }
+    }
+
+    private fun save(sp: SharedPreferences){
+        val editor = sp.edit()
+        editor.putString("username", username.text.toString())
+        editor.putString("password", password.text.toString())
+        editor.apply()
+        toast("Username and Password is saved")
     }
 
     private fun login(){
