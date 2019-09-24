@@ -27,6 +27,10 @@ class MainActivity : AppCompatActivity() {
         username.setText(sp.getString("username",""))
         password.setText(sp.getString("password",""))
 
+        if(sp.getString("username","")!!.isNotEmpty()){
+            login()
+        }
+
         val client = OkHttpClient().newBuilder()
             .addNetworkInterceptor(StethoInterceptor())
             .build()
